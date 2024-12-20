@@ -27,9 +27,25 @@ $(document).ready(function () {
         let paymentsData = [];
 
         function renderTablePage(page) {
-          
+          const tableHtml = `
+              <thead>
+                  <tr>
+                      <th></th>
+                      <th>TimeStamp</th>
+                      <th>Label</th>
+                      <th>Amount</th>
+                      <th>Type</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <!-- Table rows will be inserted here by JavaScript -->
+              </tbody>
+          `; 
+          const $tableContent = $('#paymentsTable');
+          $tableContent.html(tableHtml)
           const $tableBody = $('#paymentsTable tbody');
-          $tableBody.empty();
           const startIndex = (page - 1) * itemsPerPage;
           const endIndex = startIndex + itemsPerPage;
           const pageData = paymentsData.slice(startIndex, endIndex);
@@ -205,6 +221,23 @@ $(document).ready(function () {
         let contactsData = [];
 
         function renderTablePage(page) {
+          const contactsTableHtml = `
+            <thead>
+              <tr>
+                  <th>Date Added</th>
+                  <th>Label </th>
+                  <th>Offer</th>
+                  <th>Lightning Address</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be inserted here by JavaScript -->
+            </tbody>
+          `;
+          const $contactsTableContents = $('#contactsTable')
+          $contactsTableContents.html(contactsTableHtml)
           const $tableBody = $('#contactsTable tbody');
           $tableBody.empty();
           const startIndex = (page - 1) * itemsPerPage;
@@ -345,7 +378,65 @@ $(document).ready(function () {
       method: 'GET',
       success: function (html) {
         $('#rightPanel').html(html);
+        $('#seeAdminPassword').on('click', function() {
+          $('#adminPassword').toggleClass('visible');
+        })
+      
+        $('#seeRestrictedPassword').on('click', function() {
+          $('#restrictedPassword').toggleClass('visible');
+        })
 
+        $('#seeWalletSeedPhrase').on('click', async function() {
+          $('#wallet-seed-phrase').toggleClass('visible');
+        })
+      
+        fetch('/api/getconfiginfo')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+          })
+          .then(data => {
+            let adminPassword = data.config["http-password"]
+            let restrictedPassword = data.config["http-password-limited-access"]
+            $('#adminPassword').html(adminPassword);
+            $('#restrictedPassword').html(restrictedPassword);
+      
+          })
+          .catch(error => {
+            console.error('Error fetching balance:', error);
+          });
+      
+          fetch('/api/getseedphrase')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok ' + response.statusText);
+            }
+            // console.log(response.json())
+            return response.json();
+          })
+          .then(data => {
+            $('#wallet-seed-phrase').html(data.seed);
+      
+          })
+          .catch(error => {
+            console.error('Error fetching balance:', error);
+          });
+          
+      
+        $('#copyAdminPassword').on('click', function () {
+          copyPassword('#adminPassword');
+        });
+      
+         $('#copyWalletSeedPhrase').on('click', function () {
+          copyPassword('#wallet-seed-phrase');  
+        });
+      
+        // Event listener for restricted password copy button
+        $('#copyRestrictedPassword').on('click', function () {
+          copyPassword('#restrictedPassword');
+        });
       },
       error: function (xhr, status, error) {
         console.error('Error loading partial:', error);
@@ -1232,10 +1323,6 @@ $(document).ready(function () {
     
   });
 
-  $('#seeWalletSeedPhrase').on('click', async function() {
-    $('#wallet-seed-phrase').toggleClass('visible');
-  })
-
   $("#doneUpdatePassword").click(function () {
     var newPassword = $("#newPassword").val();
     var confirmedPassword = $("#confirmPassword").val();
@@ -1451,61 +1538,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   
-  $('#seeAdminPassword').on('click', function() {
-    $('#adminPassword').toggleClass('visible');
-  })
 
-  $('#seeRestrictedPassword').on('click', function() {
-    $('#restrictedPassword').toggleClass('visible');
-  })
-
-  fetch('/api/getconfiginfo')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok ' + response.statusText);
-      }
-      return response.json();
-    })
-    .then(data => {
-      let adminPassword = data.config["http-password"]
-      let restrictedPassword = data.config["http-password-limited-access"]
-      $('#adminPassword').html(adminPassword);
-      $('#restrictedPassword').html(restrictedPassword);
-
-    })
-    .catch(error => {
-      console.error('Error fetching balance:', error);
-    });
-
-    fetch('/api/getseedphrase')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok ' + response.statusText);
-      }
-      // console.log(response.json())
-      return response.json();
-    })
-    .then(data => {
-      $('#wallet-seed-phrase').html(data.seed);
-
-    })
-    .catch(error => {
-      console.error('Error fetching balance:', error);
-    });
-
-
-  $('#copyAdminPassword').on('click', function () {
-    copyPassword('#adminPassword');
-  });
-
-   $('#copyWalletSeedPhrase').on('click', function () {
-    copyPassword('#wallet-seed-phrase');  
-  });
-
-  // Event listener for restricted password copy button
-  $('#copyRestrictedPassword').on('click', function () {
-    copyPassword('#restrictedPassword');
-  });
 
 })
 
