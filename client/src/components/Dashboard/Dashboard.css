@@ -1,0 +1,180 @@
+/* src/components/Dashboard/Dashboard.css */
+/* Main-page-styles */
+
+body {
+    background-color: #000000;
+    color: whitesmoke;
+}
+
+.side-panel {
+    height: 100vh;
+    /* Full height */
+    background-color: #000000;
+    /* Darker background for side panel */
+    padding: 20px;
+    border-right: 1px solid #222222;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Border separating the panels */
+}
+
+.menu {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    color: whitesmoke; /* or your desired color */
+    text-align: left;
+    padding: 10px 0;
+    /* font-size: 16px; */
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-item:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.menu-item:hover,
+.menu-item:focus {
+    background-color: #222222;
+    color: whitesmoke;
+}
+
+.menu-item:active {
+    background-color: #111111;
+    color: #f09026;
+}
+
+.menu-item.selected {
+    background-color: #111111;
+    color: #f09026;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    /* width: 100%; */
+}
+
+
+.footer-item button {
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-item {
+    display: flex;
+    padding: 10px 0;
+    color: whitesmoke;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-top: 1px solid #333333;
+}
+
+.footer-item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-item:hover,
+.footer-item:focus {
+    background-color: #222222;
+    color: whitesmoke;
+}
+
+.footer-icon-right {
+    margin-left: auto;
+    padding-right: 40px;
+     color:#F0F8FF;
+}
+
+.footer-icon {
+    margin-right: 10px;
+}
+
+.footer-text {
+    color: grey;
+    padding-left: 5px;
+    flex-grow: 1;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.app-name {
+    font-size: 1.5rem;
+    color: whitesmoke;
+    margin-bottom: .5rem;
+}
+
+
+.app-name h2 {
+    font-size: 2rem;
+    color: whitesmoke;
+    margin-bottom: 20px;
+}
+
+
+
+.row {
+    margin-bottom: 10px;
+    /* Space between rows */
+}
+
+.row .heading {
+    font-size: 1.5rem;
+    /* Heading size */
+    color: #f09026;
+    margin-bottom: 10px;
+
+}
+
+.heading-home {
+    font-size: 2rem;
+    color: #f19528;
+    margin-bottom: 20px;
+}
+
+.zaprite-image {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.side-panel .menu i {
+    margin-right: 5px;
+
+}
+
+#barcodeContainer {
+    border: 2px solid #000000;
+    padding: 4px;
+    display: inline-block;
+    background-color: #f9f9f9;
+}
+
+/* Modal styles */
+
+

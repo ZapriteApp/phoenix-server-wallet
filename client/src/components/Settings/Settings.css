@@ -1,0 +1,200 @@
+.heading {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #f19528;
+}
+
+.application-password {
+    background-color: #000;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.update-password {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    padding: 10px;
+}
+
+.passwordSet {
+    color: #fff;
+    background-color: #111111;
+    /* Green shade for the box */
+    padding: 10px;
+    display: inline-block;
+    margin: 0;
+}
+
+.update-password-button {
+    background-color: #000000;
+    color: #f09026;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #f09026;
+}
+
+.update-password-button i {
+    margin-left: 8px;
+}
+
+.stringBox {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #111111;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.adminPassword,
+.restrictedPassword,
+.wallet-seed-phrase {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+.api-passwords p {
+    color: #fff;
+}
+
+
+#doneUpdatePassword {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+
+#submitSuccessPasswordSet {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+#okFailedConfirmSeed {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+
+#submitSuccessPasswordSet {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+#doneConfirmSeed {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+#closeUpdatePassword {
+    background-color: #000000;
+    color: #f09026;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #f09026;
+}
+
+#cancelConfirmSeed {
+    background-color: #000000;
+    color: #f09026;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #f09026;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.wallet-seed-phrase {
+    filter: blur(8px);
+    transition: filter 0.3s ease-in-out;
+}
+
+.wallet-seed-phrase.visible {
+    filter: none;
+}
+
+.adminPassword,
+.restrictedPassword {
+    filter: blur(8px);
+    transition: filter 0.3s ease-in-out;
+}
+
+.adminPassword.visible {
+    filter: none;
+}
+
+.restrictedPassword.visible {
+    filter: none;
+
+}
+
+.required-asterisk {
+    color: red;
+}
+

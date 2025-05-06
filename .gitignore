@@ -1,3 +1,34 @@
-node_modules/
-.env
-db.json
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/client/node_modules
+/client/.pnp
+/client/.pnp.js
+/backend/node_modules
+/backend/.pnp
+/backend/.pnp.js
+
+
+
+# testing
+/client/coverage
+/backend/coverage
+
+# production
+/client/build
+/backend/build
+
+# misc
+/.DS_Store
+/client/.env.local
+/client/.env.development.local
+/client/.env.test.local
+/client/.env.production.local
+/backend/.env.local
+/backend/.env.development.local
+/backend/.env.test.local
+/backend/.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

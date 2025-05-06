@@ -1,0 +1,264 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+    padding: 0
+}
+
+thead {
+    background-color: #000000;
+    color: #333333;
+}
+
+th,
+td {
+    border: none;
+    padding: 10px;
+    text-align: left;
+    font-size: 0.75em;
+}
+
+tbody tr {
+    border-bottom: 1px solid #333333;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+td:last-child {
+    text-align: center;
+}
+
+.bi-arrow-down-left {
+    color: green;
+}
+
+.bi-arrow-up-right {
+    color: red;
+
+}
+
+h3 {
+    color: #f19528;
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+}
+
+.pagination-button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #111111;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+.pagination-button:disabled {
+    background-color: #333333;
+    cursor: not-allowed;
+}
+
+.pagination-button:hover {
+    background-color: #222222;
+}
+
+.contacts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.contacts-header h3 {
+    color: #f19528;
+    margin: 0;
+}
+
+.import-button {
+    background-color: #f19528;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.import-button:hover {
+    background-color: #d97d1e;
+}
+
+.new-contact-button {
+    background-color: #f19528;
+    ;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.new-contact-button:hover {
+    background-color: #d97d1e;
+}
+
+#cancelAddContact {
+    background-color: #000000;
+    color: #f09026;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #f09026;
+}
+
+/* #importContactModal .modal-content {
+        width: 500px;
+        height: 500px;
+
+    } */
+
+#addContact {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+#doneImportContactModal {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+#closeContactModal {
+    background-color: #000000;
+    color: #f09026;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #f09026;
+}
+
+#barcodeContainer {
+    border: 2px solid #000000;
+    padding: 3px;
+    display: inline-block;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.contact-action-btn {
+    padding: 0;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    background-color: #111;
+    border: none;
+    outline: none;
+    /* box-shadow: 0 0 3px #f19528 */
+}
+
+
+.contact-action-btn-icon i {
+    font-size: 0.6rem;
+    color: whitesmoke;
+}
+
+.contact-action-btn-icon:hover {
+    color: #f0ad4e;
+}
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two equal columns */
+    gap: 10px;
+    /* Space between rows */
+    color: whitesmoke;
+    margin-top: 20px;
+    font-size: 14px;
+    overflow-y: scroll;
+    /* Enable vertical scrolling if needed */
+    max-height: 300px;
+    /* Constrain the grid height */
+    padding-right: 10px;
+}
+
+.contacts-grid div {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.contacts-grid div:nth-child(odd) {
+    font-weight: bold;
+    /* Highlight labels */
+}
+
+#contactDetailsGrid div:nth-child(even) {
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.contacts-grid::-webkit-scrollbar {
+    width: 8px;
+}
+
+.contacts-grid::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.contacts-grid::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.contacts-grid::-webkit-scrollbar-track {
+    background: #333;
+}
+
+#doneContactActionModal {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}

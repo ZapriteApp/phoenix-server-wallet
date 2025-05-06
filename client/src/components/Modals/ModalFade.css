@@ -1,0 +1,12 @@
+/* Fade effect container */
+.modal-fade {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .modal-fade.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  

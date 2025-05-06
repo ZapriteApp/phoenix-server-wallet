@@ -1,0 +1,8 @@
+#invoicePaymentType .modalcontent {
+    width: 450px;
+    height: 450px
+}
+
+#invoice-error-message  {
+ color: red;
+}

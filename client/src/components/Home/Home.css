@@ -1,0 +1,177 @@
+.main-content {
+    padding: 20px;
+    background-color: #000000;
+    color: whitesmoke;
+}
+.balanceRow {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 15px 10px;
+    background-color: #111111;
+}
+
+.balanceCol {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111111;
+    /* padding: 10px; */
+    margin: 2px;
+    /* border-radius: 5px; */
+}
+
+.balanceItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.balanceValue {
+    font-weight: bold;
+    /* margin-bottom: 5px; */
+    /* Space between the value and the label */
+}
+
+.stringBox {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #111111;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.bolt12Offer {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+.text-content {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#sendButton {
+    background-color: whitesmoke;
+    color: #f09125;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#sendButton i {
+    color: #f09125;;
+}
+
+#sendButton:hover {
+    background-color: #f7f7f7;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+#receiveButton {
+    background-color: #f09125;
+    color: whitesmoke;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+
+}
+
+#receiveButton i {
+    color: whitesmoke;
+}
+  
+
+#receiveButton:hover {
+    background-color: #d97d1e;
+}
+
+.balance {
+    font-weight: bold;
+    padding: 8px 12px;
+    display: inline-block;
+    background-color: #222222;
+    align-items: center;
+
+}
+
+.progressBarContainer {
+    width: 100%;
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+#progressBar {
+    background-color: whitesmoke;
+    height: 100%;
+    /* width: 0%; */
+}
+
+.inbound-styling {
+    color: #f09125;
+}
+
+.channelId {
+    display: flex;
+    align-items: center;
+}
+
+.channelIdString {
+    display: inline-block;
+    max-width: 12ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 5px;
+}
+
+#btcPriceInbound {
+    font-size: 0.7 rem;
+    color: grey;
+}
+
+
+#btcPriceOutbound {
+    font-size: 0.7 rem;
+    color: grey;
+}
+
+.channelId {
+    font-size: 0.7 rem;
+    color: grey;
+}
+
+.learn-more-link {
+    display: block;
+    color: #d97d1e;
+    text-decoration: none;
+}

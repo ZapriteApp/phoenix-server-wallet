@@ -1,0 +1,66 @@
+.login-body {
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.login-container {
+    text-align: center;
+    width: 400px;
+    
+}
+
+/* Title styling */
+.login-title {
+    font-size: 3em;
+    font-weight: bold;
+    color: orange;    
+    margin-bottom: 20px;
+}
+
+/* Welcome text styling */
+.welcome-text {
+    color: whitesmoke;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+/* Input box styling */
+.input-box {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #333333;
+    border: 1px solid grey;
+    color: white;
+    font-size: 1em;
+}
+
+/* Change input border color on focus */
+.input-box:hover {
+    outline: none;
+    border-color:white;
+}
+
+.input-box:focus {
+    outline: none;
+    border-color: #f09026;
+}
+
+/* Button styling */
+.login-button {
+    width: 30%;
+    padding: 10px;
+    background-color: #f09026;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #d97d1e;
+}

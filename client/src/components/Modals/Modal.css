@@ -1,0 +1,497 @@
+.modal {
+    display: flex !important;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.75);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-fade {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-fade.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modalcontent {
+    display: flex;
+    background-color: #000000;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #333333;
+    width: 500px;
+    height: 500px;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    overflow: scroll;
+
+}
+
+.modalcontent .close {
+    color: whitesmoke;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modalcontent h2 {
+    color: whitesmoke;
+    margin: 0;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.modalcontent h3 {
+    color: #f09026;
+    padding-left: 0%;
+
+}
+
+.modalcontent input[type="text"] {
+    background-color: #000;
+    color: whitesmoke;
+    border: 1px solid #888;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+}
+
+
+.modalcontent input[type="password"] {
+    background-color: #000;
+    color: whitesmoke;
+    border: 1px solid #888;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.modalcontent input[type="text"]::placeholder {
+    color: #666;
+    opacity: 1;
+}
+
+.modalcontent input[type="password"]::placeholder {
+    color: #666;
+    opacity: 1;
+}
+
+.modalcontent input[type="text"]:hover {
+    background-color: #000;
+}
+
+.modalcontent input[type="password"]:hover {
+    background-color: #000;
+}
+
+.modalcontent input[type="text"]:hover::placeholder {
+    color: whitesmoke;
+}
+
+.modalcontent input[type="password"]:hover::placeholder {
+    color: whitesmoke;
+}
+
+#contactPaymentType select {
+    background-color: #000;
+    ;
+    color: #ffff;
+}
+
+#contactPaymentType option {
+    background-color: #000000;
+    ;
+    color: #ffff;
+}
+
+.payment-button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.payment-button-group button {
+    background-color: #f09026;
+    color: whitesmoke;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    /* display: flex;
+    justify-content: space-between; */
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.payment-button-group button:hover {
+    background-color: #d97d1e;
+}
+
+.payment-button-group button i {
+    color: whitesmoke;
+}
+
+/* Cancel Button */
+#cancelSendRequest {
+    background-color: #000000;
+    color: #f09026;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #f09026;
+}
+
+#cancelSendRequest:hover {
+    background-color: #111111;
+}
+
+#backToPaymentType {
+    background-color: #000000;
+    color: #f09026;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    left: 20px;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+
+
+#backToPaymentType:hover {
+    background-color: #111111;
+}
+
+#submitOffer {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+#submitOffer:hover {
+    background-color: #d97d1e;
+}
+
+#submitPaymentSuccess {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+#okFailedPayment {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+#submitSuccessContactAddedModal {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+
+#submitPaymentSuccess:hover {
+    background-color: #d97d1e;
+}
+
+#submitContact {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+#submitContact:hover {
+    background-color: #d97d1e;
+}
+
+#submitInvoice {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+
+}
+
+#submitInvoice:hover {
+    background-color: #d97d1e;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #f09026;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.payment-button-group {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+}
+
+.paymentOption {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
+.paymentOption.selected {
+    background-color: #ccc;
+    font-weight: bold;
+}
+
+
+.barcode {
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 256px;
+    height: 256px;
+}
+
+.string-box {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.invoice-string {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.copy-btn {
+    margin-left: 10px;
+    padding: 1px;
+    border: none;
+    background-color: #111111;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+/* .copy-btn i {
+    font-size: 18px;
+} */
+
+.copy-btn:hover {
+    background-color: #222222;
+}
+
+.decode-invoice {
+    background-color: #222222;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.decoded-invoice-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.decoded-invoice-item p:first-child {
+    color: #f09026;
+    margin: 0;
+    font-weight: bold;
+    width: 70px;
+}
+
+.decoded-invoice-item p:last-child {
+    color: whitesmoke;
+    margin: 0px;
+    flex: 1;
+}
+
+.decode-invoice p {
+    font-size: 16px;
+}
+
+#cancelPaymentRequest {
+    background-color: #000000;
+    color: #f09026;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #f09026;
+}
+
+#cancelPaymentRequest:hover {
+    background-color: #111111;
+}
+
+
+#nextToSharePaymentRequest {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+#nextToSharePaymentRequest:hover {
+    background-color: #d97d1e;
+}
+
+#closeSharePaymentRequest {
+    background-color: #000000;
+    color: #f09026;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #f09026;
+
+}
+
+#closeSharePaymentRequest:hover {
+    background-color: #111111;
+}
+
+#doneSharePaymentRequest {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+#doneSharePaymentRequest:hover {
+    background-color: #d97d1e;
+}
+
+#closeShowPaymentOffer {
+    background-color: #000000;
+    color: #f09026;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #f09026;
+}
+
+#doneShowPaymentOffer {
+    background-color: #f09026;
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #f09026;
+}
+
+
+#sharePaymentRequestModal .modal-content {
+    width: 500px;
+    height: 500px;
+}
+
+.icon-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.check-icon {
+    font-size: 128px;
+    color: #f09026;
+}
