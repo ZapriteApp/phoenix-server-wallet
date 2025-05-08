@@ -65,5 +65,20 @@ export async function isOfferValid(offer) {
     return formatter.format(number);
   }
   
+
+  export const validateOffer = async (offer) => {
+    try {
+      const res = await fetch('api/decodeoffer', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ offer })
+      });
+      const result = await res.json();
+      return result.chain ? true : false;
+    } catch (err) {
+      console.error('Error validating offer:', err);
+      return false;
+    }
+  };
   
   

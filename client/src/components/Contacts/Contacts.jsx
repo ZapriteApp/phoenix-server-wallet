@@ -2,14 +2,11 @@ import React, { useState, useEffect } from "react";
 import './Contacts.css'
 import '../Modals/Modal.css'
 import AddContactModal from '../Modals/AddContactModal'
-import ImportContactModal from '../Modals/ImportContactModal'
 import ShowContactActionModal from '../Modals/ShowContactActionModal'
 import SuccessContactAddedModal from "../Modals/SuccessContactAddedModal";
 
 const Contacts = () => {
   const [isAddContactModalModalOpen, setIsAddContactModalOpen] = useState(false);
-  const [isImportContactModalModalOpen, setIsImportContactModalOpen] = useState(false);
-  const [isShowContactActionModalOpen, setIsShowContactActionModalOpen] = useState(false);
   const [isSuccessContactAddedModalOpen, setIsSuccessContactAddedModalOpen] = useState(false);
   const [selectedContact, setSelectedContact] = useState(null);
   
@@ -33,14 +30,6 @@ const Contacts = () => {
   useEffect(() => {
     fetchContacts();
   }, []);
-
-  const filteredContacts = contactsData.map(({ name, offer, address }) => ({
-    name,
-    offer,
-    address
-  }));
-
-  const contactsJson = JSON.stringify(filteredContacts);
 
   const truncateText = (text, length) => {
     if (!text) return '';
@@ -72,8 +61,6 @@ const Contacts = () => {
 
   const closeModal = () => {
     setIsAddContactModalOpen(false);
-    setIsImportContactModalOpen(false);
-    setIsShowContactActionModalOpen(false);
     setIsSuccessContactAddedModalOpen(false)
   };
 
@@ -84,20 +71,7 @@ const Contacts = () => {
     });
   };
 
-  const validateOffer = async (offer) => {
-    try {
-      const res = await fetch('api/decodeoffer', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ offer })
-      });
-      const result = await res.json();
-      return result.chain ? true : false;
-    } catch (err) {
-      console.error('Error validating offer:', err);
-      return false;
-    }
-  };
+ 
 
   const handleAddContact = async () => {
     const { addContactName, addContactOffer, addContactAddress } = formValues;
@@ -107,16 +81,17 @@ const Contacts = () => {
       return;
     }
 
-    if (addContactOffer.trim() === '') {
-      setErrorMessage('The contact offer cannot be empty.');
+    if (addContactOffer.trim() === '' && addContactAddress.trim() === '') {
+      setErrorMessage('Please add an offer or address for your contact.');
       return;
     }
 
-    const isValid = await validateOffer(addContactOffer);
-    if (!isValid) {
-      setErrorMessage('The contact offer is invalid.');
-      return;
-    }
+
+    // const isValid = addContactOffer==='' ? true : await validateOffer(addContactOffer);
+    // // if (!isValid) {
+    // //   setErrorMessage('The contact offer is invalid.');
+    // //   return;
+    // // }
 
     const contactData = {
       name: addContactName.trim(),
@@ -132,7 +107,6 @@ const Contacts = () => {
       });
 
       if (!response.ok) throw new Error('Failed to save contact');
-      const data = await response.json();
       closeModal();
       fetchContacts();
       openSuccessContactAddedModal()
@@ -141,14 +115,6 @@ const Contacts = () => {
       setErrorMessage('An error occurred while saving the contact.');
     }
   };
-
-  const openImportContactModal = () => {
-    setIsImportContactModalOpen(true);
-  }
-
-  const openShowContactActionModal = () => {
-    setIsShowContactActionModalOpen(true);
-  }
 
   const openSuccessContactAddedModal = () => {
     setIsSuccessContactAddedModalOpen(true);
@@ -186,22 +152,18 @@ const Contacts = () => {
               <tr key={`${contact.id}-${index}`}>
                 <td>{formatDate(contact.dateAdded)}</td>
                 <td>{truncateText(contact.name, 15)}</td>
-                <td>{truncateText(contact.offer, 20)}</td>
-                <td>{truncateText(contact.address, 20)}</td>
+                <td>{contact.offer === '' ? "~": truncateText(contact.offer, 20)}</td>
+                <td>{contact.address === '' ? "~" : truncateText(contact.address, 20)}</td>
                 <td>Active</td>
                 <td>
-                  <button
-                    className="contact-action-btn contact-action-btn-icon"
-                    onClick={ () => setSelectedContact({
+                  <button className="contact-action-btn contact-action-btn-icon">
+                    <i className="bi bi-three-dots-vertical"  onClick={ () => setSelectedContact({
                       id: contact.id,
                       name: contact.name,
                       offer: contact.offer,
                       address: contact.address,
                       dateAdded: formatDate(contact.dateAdded)
-                    })}
-
-                  >
-                    <i className="bi bi-three-dots-vertical" onClick={openShowContactActionModal}></i>
+                    })}></i>
                   </button>
                 </td>
               </tr>
@@ -236,10 +198,10 @@ const Contacts = () => {
 
 
       {/* Import Contact Modal */}
-      {isImportContactModalModalOpen && (
+      {/* {isImportContactModalModalOpen && (
         <ImportContactModal closeModal={closeModal}
         contactsString={contactsJson} />
-      )}
+      )} */}
 
       {isSuccessContactAddedModalOpen && (
         <SuccessContactAddedModal closeModal={closeModal} />

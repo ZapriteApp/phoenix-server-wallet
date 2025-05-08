@@ -93,7 +93,7 @@ const Dashboard = ({ setAuthenticated}) => {
             )}
             <div className="footer-item" id="github-link" onClick={handleGitHubClick}>
               <button id="home" onClick={handleGitHubClick}>
-                <span className="footer-text">Version 0.1.7-beta</span>
+                <span className="footer-text">Version 0.1.5-beta</span>
               </button>
               <i className="bi bi-github footer-icon-right"></i>
             </div>

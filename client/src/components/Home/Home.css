@@ -127,13 +127,13 @@
     height: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
+    background-color: #f09125;
     overflow: hidden;
 }
 
 #progressBar {
     background-color: whitesmoke;
     height: 100%;
-    /* width: 0%; */
 }
 
 .inbound-styling {
