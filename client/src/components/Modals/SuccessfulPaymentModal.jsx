@@ -9,7 +9,7 @@ const SuccessfulPaymentModal = ({closeModal}) => {
         <span className="close" data-modal="successfulPaymentModal">
           &times;
         </span>
-        <h3>Success</h3>
+        <h3>Payment Successful</h3>
         <div className="icon-container">
           <i className="bi bi-check-circle check-icon"></i>
         </div>

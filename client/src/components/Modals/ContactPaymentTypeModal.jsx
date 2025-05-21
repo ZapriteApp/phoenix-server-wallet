@@ -13,6 +13,8 @@ const ContactPaymentTypeModal = ({
   const [amount, setAmount] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  
   useEffect(() => {
     fetch('/api/getcontacts')
       .then(response => {
@@ -28,6 +30,8 @@ const ContactPaymentTypeModal = ({
 
   const handleContactPayment = async () => {
     setError('');
+    setLoading(true);
+
 
     if (!selectedContact) return setError('You have not selected a contact.');
     if (!destinationType) return setError('Choose a payment destination.');
@@ -143,8 +147,17 @@ const ContactPaymentTypeModal = ({
         <button type="button" id="backToPaymentType" onClick={backToPaymentTypeModal}>
           <i className="bi bi-arrow-left"> </i>Back
         </button>
-        <button type="button" id="submitContact" onClick={handleContactPayment}>
-          Send <i className="bi bi-check2"></i>
+        <button type="button" id="submitContact" onClick={handleContactPayment} disabled={loading}>
+        {loading ? (
+            <>
+              <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              {' '}Sending...
+            </>
+          ) : (
+            <>
+              Send <i className="bi bi-check2"></i>
+            </>
+          )}
         </button>
       </div>
     </div>

@@ -10,7 +10,7 @@ const FailedPaymentModal = ({closeModal, errorMessage}) => {
         <span className="close" data-modal="failedPaymentModal" onClick={closeModal}>
           &times;
         </span>
-        <h3>Failed Transaction</h3>
+        <h3>Failed Send Transaction</h3>
         <div id="failed-payment-error-message"><p>{errorMessage || 'An unknown error occurred.'}</p></div>
         <div className="icon-container">
           <i className="bi bi-exclamation-diamond-fill check-icon"></i>

@@ -152,8 +152,8 @@ const Contacts = () => {
               <tr key={`${contact.id}-${index}`}>
                 <td>{formatDate(contact.dateAdded)}</td>
                 <td>{truncateText(contact.name, 15)}</td>
-                <td>{contact.offer === '' ? "~": truncateText(contact.offer, 20)}</td>
-                <td>{contact.address === '' ? "~" : truncateText(contact.address, 20)}</td>
+                <td>{contact.offer === '' ? "-": truncateText(contact.offer, 20)}</td>
+                <td>{contact.address === '' ? "-" : truncateText(contact.address, 20)}</td>
                 <td>Active</td>
                 <td>
                   <button className="contact-action-btn contact-action-btn-icon">

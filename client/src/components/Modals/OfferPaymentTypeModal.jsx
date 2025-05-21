@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import '../Modals/Modal.css'
 import './OfferPaymentTypeModal.css'
 
@@ -7,6 +7,7 @@ const OfferPaymentTypeModal = ({ backToPaymentTypeModal, closeModal, openSuccess
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleOfferPayment = async () => {
     const trimmedOffer = offer.trim();
@@ -29,6 +30,7 @@ const OfferPaymentTypeModal = ({ backToPaymentTypeModal, closeModal, openSuccess
     }
 
     try {
+      setLoading(true);
       const response = await fetch('/api/decodeoffer', {
         method: 'POST',
         headers: {
@@ -125,8 +127,17 @@ const OfferPaymentTypeModal = ({ backToPaymentTypeModal, closeModal, openSuccess
         <button type="button" id="backToPaymentType" onClick={backToPaymentTypeModal}>
           <i className="bi bi-arrow-left"> </i>Back
         </button>
-        <button type="button" id="submitOffer" onClick={handleOfferPayment}>
-          Send <i className="bi bi-check2"></i>
+        <button type="button" id="submitOffer" onClick={handleOfferPayment} disabled={loading}>
+          {loading ? (
+            <>
+              <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              {' '}Sending...
+            </>
+          ) : (
+            <>
+              Send <i className="bi bi-check2"></i>
+            </>
+          )}
         </button>
       </div>
     </div>

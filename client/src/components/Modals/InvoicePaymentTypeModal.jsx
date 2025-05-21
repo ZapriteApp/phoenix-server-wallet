@@ -10,6 +10,8 @@ const InvoicePaymentTypeModal = ({ backToPaymentTypeModal, closeModal, openSucce
   const [paymentFailedReason, setPaymentFailedReason] = useState('');
   const [memo, setMemo] = useState('-');
   const [amount, setAmount] = useState('-');
+  const [loading, setLoading] = useState(false);
+  
 
   const handleInvoiceInput = async (e) => {
     const value = e.target.value.trim();
@@ -61,6 +63,7 @@ const InvoicePaymentTypeModal = ({ backToPaymentTypeModal, closeModal, openSucce
   };
 
   const handleInvoicePayment = async () => {
+    setLoading(true);
     setErrorMessage('');
     const trimmedInvoice = invoice.trim();
     let amount = parseInt(amountSat, 10);
@@ -167,7 +170,7 @@ const InvoicePaymentTypeModal = ({ backToPaymentTypeModal, closeModal, openSucce
             </div>
             <div className="decoded-invoice-item">
               <p className="fees">Fee:</p>
-              <p className="fees">~ sats</p>
+              <p className="fees">- sats</p>
             </div>
           </div>
         )}
@@ -175,8 +178,17 @@ const InvoicePaymentTypeModal = ({ backToPaymentTypeModal, closeModal, openSucce
         <button type="button" id="backToPaymentType" onClick={backToPaymentTypeModal}>
           <i className="bi bi-arrow-left"> </i>Back
         </button>
-        <button type="button" id="submitInvoice" onClick={handleInvoicePayment}>
-          Send <i className="bi bi-check2"></i>
+        <button type="button" id="submitInvoice" onClick={handleInvoicePayment}  disabled={loading}>
+        {loading ? (
+            <>
+              <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              {' '}Sending...
+            </>
+          ) : (
+            <>
+              Send <i className="bi bi-check2"></i>
+            </>
+          )}
         </button>
       </div>
     </div>

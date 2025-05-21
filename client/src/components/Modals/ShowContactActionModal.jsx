@@ -19,7 +19,7 @@ const ShowContactActionModal = ({ closeModal, contactData }) => {
             value !== undefined && value !== null && (
               <React.Fragment key={key}>
                 <div className='showContactModalKey'>{key}</div>
-                <div>{value === '' ? "~" : value}</div>
+                <div>{value === '' ? "-" : value}</div>
               </React.Fragment>
             )
           ))}

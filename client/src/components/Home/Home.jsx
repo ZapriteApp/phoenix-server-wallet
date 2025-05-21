@@ -88,7 +88,7 @@ const Home = () => {
   const usdValue = (sats) =>
     btcPrice
       ? `≈ $${intlNumberFormat(((sats / 100000000) * btcPrice).toFixed(2))}`
-      : '~';
+      : '-';
   const openPaymentTypeModal = () => {
     setIsContactPaymentTypeModalOpen(false);
     setIsInvoicePaymentTypeModalOpen(false)
@@ -267,7 +267,7 @@ const Home = () => {
                     (
                       <>
                         <span className="channelId" id="channelId">
-                          No channel created. Your fee credit sat amount is {'~'}
+                          No channel created. Your fee credit sat amount is {'-'}
                           <br />
                           <a
                             href="https://phoenix.acinq.co/server/auto-liquidity"

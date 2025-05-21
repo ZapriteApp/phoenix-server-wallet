@@ -58,17 +58,14 @@ const Transactions = () => {
         invoiceDetails = await getInvoiceDetails(payment.invoice);
       }
 
-      const invoiceAmount = invoiceDetails?.amount ? invoiceDetails.amount / 1000 : "-";
-      const invoiceDescription = invoiceDetails?.description || "~";
-
       const icon = payment.hasOwnProperty("receivedSat") ? "bi-arrow-down-left" : "bi-arrow-up-right";
 
       return (
         <tr key={`${payment.paymentHash}-${index}`}>
           <td><i className={`bi ${icon}`}></i></td>
           <td>{formatTimestamp(payment.createdAt)}</td>
-          <td>{payment.description ? truncateText(payment.description) : invoiceDescription}</td>
-          <td>{Number.isInteger(invoiceAmount) ? intlNumberFormat(invoiceAmount) : "~"}</td>
+          <td>{payment.description ? truncateText(payment.description) : payment.payerNote ? truncateText(payment.payerNote): "-"}</td>
+          <td>{Number.isInteger(payment.receivedSat) ? intlNumberFormat(payment.receivedSat): Number.isInteger(payment.sent)? intlNumberFormat(payment.sent) : "-"} </td>
           <td>{payment.hasOwnProperty("receivedSat") ? "Payment" : "Transfer"}</td>
           <td>{payment.isPaid ? 'Completed' : 'Uncompleted'}</td>
           <td>
@@ -78,16 +75,16 @@ const Transactions = () => {
                 paymentHash: payment.paymentHash,
                 preimage: payment.preimage,
                 invoice: payment.invoice,
-                createdAt: payment.createdAt ? formatTimestamp(payment.createdAt) : "~",
-                completedAt: payment.completedAt ? formatTimestamp(payment.completedAt) : "~",
-                isPaid: payment.isPaid ? "Yes" : "No" || "~",
+                createdAt: payment.createdAt ? formatTimestamp(payment.createdAt) : "-",
+                completedAt: payment.completedAt ? formatTimestamp(payment.completedAt) : "-",
+                isPaid: payment.isPaid ? "Yes" : "No" || "-",
                 type: payment.hasOwnProperty("receivedSat") ? "Payment" : "Transfer",
                 status: payment.isPaid ? "Completed" : "Uncompleted",
-                sent: payment.sent ? (payment.sent ? intlNumberFormat(payment.sent) : "~") : null,
+                sent: payment.sent ? (payment.sent ? intlNumberFormat(payment.sent) : "-") : null,
                 //Incoming
                 externalId: payment.externalId || null,
                 description: payment.description || null,
-                receivedSat: payment.receivedSat ? intlNumberFormat(payment.receivedSat) : "~",
+                receivedSat: payment.receivedSat ? intlNumberFormat(payment.receivedSat) : "-",
               })}
             >
               <i className="bi bi-three-dots-vertical"></i>

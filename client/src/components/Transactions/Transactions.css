@@ -13,10 +13,10 @@ thead {
     color: #333333;
 }
 
-th, td {
+th {
     border: none;
     padding: 10px;
-    text-align: left;
+    text-align: center;
     font-size: 0.75em; 
 }
 
