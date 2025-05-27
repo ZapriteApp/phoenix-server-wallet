@@ -15,16 +15,20 @@ const ShowContactActionModal = ({ closeModal, contactData }) => {
         </span>
         <h2>Contact Details</h2>
         <div id="contactDetailsGrid" className="contacts-grid">
-          {Object.entries(contactData).map(([key, value]) => (
+          {Object.entries(contactData).map(([key, value]) =>
             value !== undefined && value !== null && (
               <React.Fragment key={key}>
-                <div className='showContactModalKey'>{key}</div>
-                <div>{value === '' ? "-" : value}</div>
+                <div className='showContactModalKey'>{JSON.stringify(key)}</div>
+                <div>
+                  {value === ''
+                    ? '-'
+                    : typeof value === 'object'
+                      ? JSON.stringify(value)
+                      : value}
+                </div>
               </React.Fragment>
             )
-          ))}
-
-
+          )}
         </div>
         <button type="button" id="doneContactActionModal" onClick={closeModal}>
           Done <i className="bi bi-check2"></i>

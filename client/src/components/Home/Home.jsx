@@ -40,7 +40,7 @@ const Home = () => {
     fetch('api/getbalance')
       .then(res => res.json())
       .then(data => {
-        setBalance(data);
+        setBalance(data.balanceSat);
         setFeeCredit(data.feeCreditSat)
       })
       .catch(err => {
@@ -179,7 +179,7 @@ const Home = () => {
         <div className="col balanceCol">
           <button id="sendButton" onClick={openPaymentTypeModal}>Send <i className="bi bi-arrow-up-right"></i></button>
           {balance ? (
-            <p className="balance">{intlNumberFormat(balance.balanceSat)} sats</p>
+            <p className="balance">{intlNumberFormat(balance)} sats</p>
           ) : (
             <p className="balance">...</p>
           )}
@@ -206,7 +206,7 @@ const Home = () => {
                 <p>Acinq</p>
                 <p className="acinq">{intlNumberFormat(capacity)} sats</p>
                 <span className="channelId" id="channelId">
-                  <span className="channelIdString">{channelId}</span>
+                  <span className="channelIdString">{JSON.stringify(channelId)}</span>
                   <button className="copy-btn" id="channelIdStr" onClick={() => handleCopyClick(channelId, "channelId")}>
                     {copied === "channelId" ? (
                       <i className="bi bi-check-lg"></i>
@@ -303,7 +303,7 @@ const Home = () => {
           <div className="stringBox">
             {bolt12Offer ? (
               <>
-                <span className="bolt12Offer" id="bolt12Offer">{bolt12Offer}</span>
+                <span className="bolt12Offer" id="bolt12Offer"> {JSON.stringify(bolt12Offer)}</span>
                 <span className="icons">
                   <button id="copyOffer" className="copy-btn" onClick={() => handleCopyClick(bolt12Offer, "copyOffer")}>
                     {copied === "copyOffer" ? (

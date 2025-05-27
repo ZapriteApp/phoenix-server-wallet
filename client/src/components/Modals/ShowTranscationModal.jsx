@@ -18,10 +18,12 @@ const ShowTransactionModal = ({ closeModal, transactionData }) => {
           {transactionData && Object.entries(transactionData).map(([key, value]) => {
             if (value !== undefined && value !== null) {
               return (
-                  <>
-                    <div className='showTransctionModalKey'>{key}</div>
-                    <div>{value}</div>
-                  </> 
+                <React.Fragment key={key}>
+                  <div className='showTransctionModalKey'>{JSON.stringify(key)}</div>
+                  <div>
+                    {typeof value === 'object' ? JSON.stringify(value) : value}
+                  </div>
+                </React.Fragment>
               );
             }
             return null;

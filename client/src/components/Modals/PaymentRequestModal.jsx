@@ -101,7 +101,7 @@ const PaymentRequestModal = ({ closeModal, onNext, onInvoiceCreated }) => {
         ></div> */}
         {errorMessage && (
           <div id="payment-request-error-message" style={{ color: 'red', marginBottom: '10px' }}>
-            {errorMessage}
+            {JSON.stringify(errorMessage)}
           </div>
         )}
 

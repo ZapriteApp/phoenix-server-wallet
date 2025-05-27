@@ -121,7 +121,7 @@ const OfferPaymentTypeModal = ({ backToPaymentTypeModal, closeModal, openSuccess
         </form>
         {errorMessage && (
           <div id="offer-error-message" style={{ color: 'red', marginBottom: '10px' }}>
-            {errorMessage}
+            {JSON.stringify(errorMessage)}
           </div>
         )}
         <button type="button" id="backToPaymentType" onClick={backToPaymentTypeModal}>

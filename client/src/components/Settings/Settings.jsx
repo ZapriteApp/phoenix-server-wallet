@@ -193,7 +193,7 @@ const Settings = () => {
         <div className="stringBox">
           {walletSeedPhrase ? (
             <>
-              <span className={`wallet-seed-phrase ${isWalletSeedVisible ? 'visible' : ''}`} id="wallet-seed-phrase">{walletSeedPhrase}</span>
+              <span className={`wallet-seed-phrase ${isWalletSeedVisible ? 'visible' : ''}`} id="wallet-seed-phrase">{JSON.stringify(walletSeedPhrase)}</span>
               <span className="icons">
                 <button id="seeWalletSeedPhrase" className="copy-btn" onClick={toggleWalletSeed}><i className={`bi ${isWalletSeedVisible ? 'bi-eye-slash' : 'bi-eye'}`} /></button>
                 <button id="copyWalletSeedPhrase" className="copy-btn" onClick={() => handleCopyClick(walletSeedPhrase, "copyWalletSeedPhrase")}>
@@ -227,7 +227,7 @@ const Settings = () => {
         <div className="stringBox">
           {adminPassword ? (
             <>
-              <span className={`adminPassword ${isAdminPasswordVisible ? 'visible' : ''}`} id="adminPassword">{adminPassword}</span>
+              <span className={`adminPassword ${isAdminPasswordVisible ? 'visible' : ''}`} id="adminPassword">{JSON.stringify(adminPassword)}</span>
               <span className="icons">
                 <button id="seeAdminPassword" className="copy-btn" onClick={toggleAdminPassword}><i className={`bi ${isAdminPasswordVisible ? 'bi-eye-slash' : 'bi-eye'}`} /></button>
                 <button id="copyAdminPassword" className="copy-btn" onClick={() => handleCopyClick(adminPassword, "copyAdminPassword")}>
@@ -256,7 +256,7 @@ const Settings = () => {
         <div className="stringBox">
           {restrictedPassword ? (
             <>
-              <span className={`restrictedPassword ${isRestrictedPasswordVisible ? 'visible' : ''}`} id="restrictedPassword">{restrictedPassword}</span>
+              <span className={`restrictedPassword ${isRestrictedPasswordVisible ? 'visible' : ''}`} id="restrictedPassword">{JSON.stringify(restrictedPassword)}</span>
               <span className="icons">
                 <button id="seeRestrictedPassword" className="copy-btn" onClick={toggleRestrictedPassword}><i className={`bi ${isRestrictedPasswordVisible ? 'bi-eye-slash' : 'bi-eye'}`} /></button>
                 <button id="copyRestrictedPassword" className="copy-btn" onClick={() => handleCopyClick(restrictedPassword, "copyRestrictedPassword")}>
