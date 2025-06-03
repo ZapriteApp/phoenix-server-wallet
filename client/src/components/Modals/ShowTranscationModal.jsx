@@ -19,9 +19,9 @@ const ShowTransactionModal = ({ closeModal, transactionData }) => {
             if (value !== undefined && value !== null) {
               return (
                 <React.Fragment key={key}>
-                  <div className='showTransctionModalKey'>{JSON.stringify(key)}</div>
+                  <div className='showTransctionModalKey'>{key}</div>
                   <div>
-                    {typeof value === 'object' ? JSON.stringify(value) : value}
+                    {typeof value === 'object' ? value : value}
                   </div>
                 </React.Fragment>
               );

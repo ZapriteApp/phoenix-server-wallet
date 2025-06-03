@@ -155,18 +155,18 @@ const InvoicePaymentTypeModal = ({ backToPaymentTypeModal, closeModal, openSucce
 
         {errorMessage && (
           <div id="invoice-error-message" className="error-message">
-            {JSON.stringify(errorMessage)}
+            {errorMessage}
           </div>
         )}
        {decodeInvoiceVisible && (
           <div className="decode-invoice">
             <div className="decoded-invoice-item">
               <p className="memo">Memo: </p>
-              <p className="memo">{JSON.stringify(memo)}</p>
+              <p className="memo">{memo}</p>
             </div>
             <div className="decoded-invoice-item">
               <p className="invoiceAmount">Amount:</p>
-              <p className="invoiceAmount">{JSON.stringify(amount)}</p>
+              <p className="invoiceAmount">{amount}</p>
             </div>
             <div className="decoded-invoice-item">
               <p className="fees">Fee:</p>

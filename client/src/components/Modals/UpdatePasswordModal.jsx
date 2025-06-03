@@ -52,7 +52,7 @@ const UpdatePasswordModal = ({
           </div>
           {errorMessage && (
             <div id="update-password-error-message">
-              {JSON.stringify(errorMessage)}
+              {errorMessage}
             </div>
           )}
         </form>

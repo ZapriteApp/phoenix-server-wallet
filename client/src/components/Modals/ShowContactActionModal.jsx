@@ -18,12 +18,12 @@ const ShowContactActionModal = ({ closeModal, contactData }) => {
           {Object.entries(contactData).map(([key, value]) =>
             value !== undefined && value !== null && (
               <React.Fragment key={key}>
-                <div className='showContactModalKey'>{JSON.stringify(key)}</div>
+                <div className='showContactModalKey'>{key}</div>
                 <div>
                   {value === ''
                     ? '-'
                     : typeof value === 'object'
-                      ? JSON.stringify(value)
+                      ? value
                       : value}
                 </div>
               </React.Fragment>

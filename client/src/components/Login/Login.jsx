@@ -61,7 +61,7 @@ const Login = ({ setIsAuthenticated }) => {
                         id="login-error-message"
                         style={{ color: 'red', marginBottom: '10px' }}
                     >
-                        {JSON.stringify(errorMessage)}
+                        {errorMessage}
                     </div>
                 )}
                 <input

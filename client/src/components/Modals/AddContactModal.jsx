@@ -60,7 +60,7 @@ const AddContactModal = ({
             <div
               id="add-contact-error-message"
             >
-              {JSON.stringify(errorMessage)}
+              {errorMessage}
             </div>
           )}
         </form>

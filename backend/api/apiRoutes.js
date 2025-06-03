@@ -17,6 +17,7 @@ router.get('/getbalance', async (req, res) => {
         res.json(data);
     }
     catch (error) {
+        console.error('[GET /getbalance] Error:', error);
         res.status(500).json({ message: 'Error retreving balance' });
     }
 });
@@ -27,6 +28,7 @@ router.post('/payinvoice', async (req, res) => {
         const data = await apiService.payInvoice(amountSat, invoice);
         res.json(data);
     } catch (error) {
+        console.error('[POST /payinvoice] Error:', error);
         res.status(500).json({ message: 'Error paying invoice' });
     }
 });
@@ -36,6 +38,7 @@ router.get('/getinfo', async (req, res) => {
         const data = await apiService.getNodeInfo();
         res.json(data);
     } catch (error) {
+        console.error('[GET /getinfo] Error:', error);
         res.status(500).json({ message: 'Error paying getting node information' });
     }
 });
@@ -46,6 +49,7 @@ router.post('/createinvoice', async (req, res) => {
         const data = await apiService.createInvoice(description, amountSat, externalId, webhookUrl);
         res.json(data);
     } catch (error) {
+        console.error('[POST /createinvoice] Error:', error);
         res.status(500).json({ message: 'Error paying invoice' });
     }
 });
@@ -56,6 +60,7 @@ router.get('/outgoingpayments', async (req, res) => {
         const data = await apiService.getOutgoingPayments(from, to, limit, offset, all);
         res.json(data);
     } catch (error) {
+        console.error('[GET /outgoingpayments] Error:', error);
         res.status(500).json({ message: 'Error fetching payments' });
     }
 });
@@ -66,6 +71,7 @@ router.get('/incomingpayments', async (req, res) => {
         const data = await apiService.getIncomingPayments(from, to, limit, offset, all);
         res.json(data);
     } catch (error) {
+        console.error('[GET /incomingpayments] Error:', error);
         res.status(500).json({ message: 'Error fetching payments' });
     }
 });
@@ -76,6 +82,7 @@ router.post('/payoffer', async (req, res) => {
         const data = await apiService.payOffer(amountSat, offer, message);
         res.json(data);
     } catch (error) {
+        console.error('[POST /payoffer] Error:', error);
         res.status(500).json({ message: 'Error paying offer' });
     }
 });
@@ -86,6 +93,7 @@ router.post('/paylnaddress', async (req, res) => {
         const data = await apiService.payLnAddress(amountSat, lnAddress, message);
         res.json(data);
     } catch (error) {
+        
         res.status(500).json({ message: 'Error paying LN address' });
     }
 });
@@ -97,6 +105,7 @@ router.get('/getoffer', async (req, res) => {
         res.json(data);
     }
     catch (error) {
+        
         res.status(500).json({ message: 'Error retreving offer' });
     }
 });
@@ -107,6 +116,7 @@ router.get('/listincomingandoutgoing', async (req, res) => {
         res.json(data);
     }
     catch (error) {
+        console.error('[GET /listincomingandoutgoing] Error:', error);
         res.status(500).json({ message: 'Error retreving transactions' });
     }
 });
@@ -118,6 +128,7 @@ router.post('/decodeoffer', async (req, res) => {
         res.json(data);
     }
     catch (error) {
+        console.error('[POST /decodeoffer] Error:', error);
         if (error.res && error.res.status === 400) {
             res.json({ message: 'Invalid offer data. Please check and try again.' });
         } else {
@@ -134,6 +145,7 @@ router.post('/decodeinvoice', async (req, res) => {
         res.json(data);
     }
     catch (error) {
+        console.error('[POST /decodeinvoice] Error:', error);
         res.status(500).json({ message: 'Error decoding invoice' });
     }
 });
@@ -147,6 +159,7 @@ router.post('/savecontact', async (req, res) => {
         res.json({ message: "Contact saved successfully" });
     }
     catch (error) {
+        console.error('[POST /savecontact] Error:', error);
         res.status(500).json({ "message": error });
     }
 });
@@ -157,6 +170,7 @@ router.get('/getcontacts', async (req, res) => {
         res.json({ contacts });
     }
     catch (error) {
+        console.error('[GET /getcontacts] Error:', error);
         res.status(500).json({ "message": error });
     }
 });
@@ -176,6 +190,7 @@ router.post('/savepassword', async (req, res) => {
         res.json({ message: "Password saved successfully" });
     }
     catch (error) {
+        console.error('[POST /savepassword] Error:', error);
         res.status(500).json({ "message": error });
     }
 });
@@ -244,6 +259,7 @@ router.get('/getbtcprice', async (req, res) => {
     }
     catch (error) {
         const btcPrice = await utils.getBitconPrice();
+        console.error('[GET /getbtcprice] Error:', error);
         return res.status(500).json({ btcPrice: btcPrice });
     }
 });
@@ -255,6 +271,7 @@ router.get('/getconfiginfo', async (req, res) => {
         res.json({ config: config })
     }
     catch (error) {
+        console.error('[GET /getconfiginfo] Error:', error);
         res.status(500).json({ "message": error });
     }
 });
@@ -266,6 +283,7 @@ router.get('/getseedphrase', (req, res) => {
 
         return res.json({ seed });
     } catch (error) {
+        console.error('[GET /getseedphrase] Error:', error);
         return res.status(500).json({ message: error.message });
     }
 });
@@ -280,6 +298,7 @@ router.get('/ispasswordset', (req, res) => {
         }
         return res.status(200).json({ success: true });
     } catch (error) {
+        
         return res.status(401).json({ success: false });
     }
 });
@@ -301,6 +320,7 @@ router.get('/authenticate', async (req, res) => {
             return res.status(401).json({});
         }
     } catch (error) {
+        console.error('Error during authentication:', error);
         return res.status(401).json({ success: false });
     }
 });
