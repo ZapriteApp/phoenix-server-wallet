@@ -1,14 +1,42 @@
 // utils.js
 export const handleCopy = (text, onSuccess) => {
+  if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text)
-    .then(() => {
-      if (onSuccess) onSuccess();
-    })
-    .catch(err => {
-      console.error('Copy failed:', err);
-    })
-  
+      .then(() => {
+        if (onSuccess) onSuccess();
+      })
+      .catch(err => {
+        console.error('Clipboard API failed:', err);
+        fallbackCopy(text, onSuccess);
+      });
+  } else {
+    fallbackCopy(text, onSuccess);
+  }
 };
+
+const fallbackCopy = (text, onSuccess) => {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+
+  // Avoid scrolling to bottom
+  textarea.style.position = 'fixed';
+  textarea.style.top = '-9999px';
+  textarea.setAttribute('readonly', '');
+
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  try {
+    const successful = document.execCommand('copy');
+    if (successful && onSuccess) onSuccess();
+    else console.warn('Fallback copy failed.');
+  } catch (err) {
+    console.error('Fallback copy error:', err);
+  }
+
+  document.body.removeChild(textarea);
+};
+
 
 export const handleBoltOfferDownload = (filename, content) => {
     return () => {
